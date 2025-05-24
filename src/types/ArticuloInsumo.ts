@@ -1,6 +1,5 @@
-
-import { Articulo } from "./Articulo";
-import { ArticuloManufacturadoDetalle } from "./ArticuloManufacturadoDetalle";
+import type { Articulo } from "./Articulo";
+import type { ArticuloManufacturadoDetalle } from "./ArticuloManufacturadoDetalle";
 
 export interface ArticuloInsumo extends Articulo {
   precioCompra: number;
