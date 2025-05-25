@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -17,22 +17,27 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+    font-family: 'Lato', sans-serif;
 }
 a:hover {
   color: #535bf2;
 }
 
-body {
+html, body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  overflow-x: hidden; /* Esto evita scroll horizontal si algo se desborda */
+    box-sizing: border-box;
+      font-family: 'Lato', sans-serif;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+    font-family: 'Lato', sans-serif;
 }
 
 button {
@@ -45,6 +50,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+    font-family: 'Lato', sans-serif;
 }
 button:hover {
   border-color: #646cff;
