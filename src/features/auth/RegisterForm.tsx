@@ -15,7 +15,7 @@ const RegisterForm: React.FC = () => {
         <input type="password" placeholder="Confirmación Contraseña" />
 
         <button type="submit" className="btn-primary">Crear cuenta</button>
-        <p>¿Ya tienes cuenta? <a href="#">Iniciar sesión</a></p>
+        <p>¿Ya tienes cuenta? <a href="/login">Iniciar sesión</a></p>
 
         <button type="button" className="btn-google">
           <img src="/img/google-icon.png" alt="Google" />
