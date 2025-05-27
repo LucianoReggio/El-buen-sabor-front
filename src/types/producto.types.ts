@@ -1,7 +1,6 @@
 import type { CategoriaInfo } from "./categoria.types";
 import type { BaseEntity } from "./common.types";
-import type { ImagenDTO } from "./ingrediente.types";
-import type { UnidadMedida } from "./UnidadMedida";
+import type { ImagenDTO, UnidadMedida } from "./ingrediente.types";
 
 export interface ManufacturadoDetalleDTO {
   idDetalleManufacturado?: number;
