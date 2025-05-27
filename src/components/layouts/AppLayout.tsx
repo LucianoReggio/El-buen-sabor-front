@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Header } from './Header';
-import { Sidebar, MenuItem } from './Sidebar';
+import React, { useState } from "react";
+import { Header } from "./Header";
+import { Sidebar, type MenuItem } from "./SideBar";
 
 export interface AppLayoutProps {
   children: React.ReactNode;
@@ -52,10 +52,8 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
           onProfileClick={onProfileClick}
           onSearchChange={onSearchChange}
         />
-        
-        <main className="flex-1 overflow-hidden">
-          {children}
-        </main>
+
+        <main className="flex-1 overflow-hidden">{children}</main>
       </div>
     </div>
   );
