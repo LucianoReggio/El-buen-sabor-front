@@ -1,6 +1,7 @@
 import React from 'react';
 import { Package } from 'lucide-react';
 import { Button } from '../ui/Button';
+import clsx from 'clsx';
 
 export interface EmptyStateProps {
   icon?: React.ReactNode;
