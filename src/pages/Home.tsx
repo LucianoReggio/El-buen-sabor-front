@@ -1,5 +1,5 @@
-import React from 'react';
-import Header from '../components/Header/Header'; // ajustá el path si cambia
+import React from "react";
+import Header from "../components/layouts/Header"; // ajustá el path si cambia
 
 const Home: React.FC = () => {
   return (

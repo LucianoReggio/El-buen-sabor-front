@@ -3,7 +3,7 @@
 // src/models/Articulo.ts
 import type { UnidadMedida } from "./UnidadMedida";
 import type { Imagen } from "./Imagen";
-import type { Categoria } from "./Categoria";
+import type { Categoria } from "./categoria.types";
 import type { DetallePedido } from "./DetallePedido";
 import type { Promocion } from "./Promocion";
 

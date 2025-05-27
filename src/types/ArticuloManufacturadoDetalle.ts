@@ -1,8 +1,8 @@
 // src/models/ArticuloManufacturadoDetalle.ts
 
 // src/models/ArticuloManufacturadoDetalle.ts
-import type { ArticuloManufacturado } from "./ArticuloManufacturado";
-import type { ArticuloInsumo } from "./ArticuloInsumo";
+import type { ArticuloManufacturado } from "./producto.types.ts";
+import type { ArticuloInsumo } from "./ingredientes.types";
 
 export interface ArticuloManufacturadoDetalle {
   idDetalleManufacturado: number;
