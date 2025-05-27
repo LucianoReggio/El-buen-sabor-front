@@ -1,0 +1,395 @@
+/* components/Navbar/Navbar.css */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #ff6b6b, #ffa500);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 70px;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+}
+
+/* Secciones del navbar */
+.navbar-left,
+.navbar-center,
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-left {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.navbar-center {
+  flex: 0;
+  justify-content: center;
+}
+
+.navbar-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Botones base */
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+/* Menú hamburguesa */
+.menu-btn {
+  font-size: 24px;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Botón carrito */
+.cart-btn {
+  position: relative;
+  font-size: 24px;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.cart-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4757;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Logo */
+.logo-btn {
+  background: transparent;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Información del usuario */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-name {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.avatar-container {
+  position: relative;
+}
+
+.avatar-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  color: white;
+  font-size: 20px;
+}
+
+/* Botones de rol */
+.role-btn {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.role-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown menus */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  margin-left: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  min-width: 200px;
+  z-index: 1001;
+  animation: slideDown 0.3s ease-out;
+}
+
+.menu-dropdown {
+  top: 100%;
+  left: 0;
+  right: auto;
+}
+
+.profile-dropdown {
+  top: 100%;
+  right: 0;
+}
+
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  text-align: left;
+  color: #333;
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu button:hover {
+  background: #f8f9fa;
+  color: #ff6b6b;
+}
+
+/* Formulario de búsqueda */
+.search-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  padding: 8px 15px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  width: 250px;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.search-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Botones para invitados */
+.navbar-guest {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.btn-auth {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-login {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-login:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn-register {
+  background: white;
+  color: #667eea;
+  border: 1px solid white;
+}
+
+.btn-register:hover {
+  background: transparent;
+  color: white;
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+/* Aviso de usuario dado de baja */
+.user-warning {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ff4757;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Variaciones por rol */
+.navbar-cajero {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.navbar-delivery {
+  background: linear-gradient(135deg, #a8e6cf, #54a0ff);
+}
+
+.navbar-cocinero {
+  background: linear-gradient(135deg, #ff9ff3, #f368e0);
+}
+
+.navbar-admin {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+}
+
+.navbar-cliente {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+}
+
+/* Animaciones */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 15px;
+  }
+  
+  .search-input {
+    width: 150px;
+  }
+  
+  .user-name {
+    display: none;
+  }
+  
+  .role-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  
+  .dropdown-menu {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-right {
+    gap: 8px;
+  }
+  
+  .search-input {
+    width: 120px;
+  }
+  
+  .role-btn {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}
