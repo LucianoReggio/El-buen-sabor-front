@@ -1,6 +1,6 @@
 // src/models/Factura.ts
 
-import type { FormaPago } from "./entities/enums/FormaPago";
+import type { FormaPago } from "./enums/FormaPago";
 import type { DatosMercadoPago } from "./DatosMercadoPago";
 import type { Pedido } from "./Pedido";
 

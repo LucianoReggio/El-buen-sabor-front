@@ -1,5 +1,5 @@
-import './Footer.css';
-import logoMoto from '../../assets/logos/Logo-imagen.png';
+import '../../../style/Footer.css';
+import logoMoto from '../../../assets/logos/Logo-imagen.png';
 import { Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
 
 export default function Footer() {
