@@ -29,7 +29,7 @@ export interface MenuItem {
 export interface SidebarProps {
   isOpen?: boolean;
   onClose?: () => void;
-  menuItems: MenuItem[];
+  menuItems?: MenuItem[];
   onMenuItemClick?: (item: MenuItem) => void;
   className?: string;
 }

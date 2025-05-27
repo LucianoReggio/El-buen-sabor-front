@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Header } from './Header';
-import { Sidebar, MenuItem } from './Sidebar';
+import { Sidebar, type MenuItem } from './SideBar';
 
 export interface AppLayoutProps {
   children: React.ReactNode;
