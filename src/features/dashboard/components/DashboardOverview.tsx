@@ -1,8 +1,8 @@
 import React from 'react';
 import { RefreshCw } from 'lucide-react';
-import { useDashboardData } from '../hooks/useDashboardData';
-import { PageContainer } from '../../../components/layout/PageContainer';
-import { Card } from '../../../components/layout/Card';
+import { useDashboardData } from '../hooks/UseDashboardData';
+import { PageContainer } from '../../../components/layouts/PageContainer';
+import { Card } from '../../../components/layouts/Card';
 import { Button } from '../../../components/ui/Button';
 import { StockMetrics } from './StockMetrics';
 import { ProductMetrics } from './ProductMetrics';
