@@ -1,6 +1,6 @@
 import type { CategoriaInfo } from "./categoria.types";
 import type { BaseEntity } from "./common.types";
-import type { ImagenDTO } from "./ingredientes.types";
+import type { ImagenDTO } from "./ingrediente.types";
 import type { UnidadMedida } from "./UnidadMedida";
 
 export interface ManufacturadoDetalleDTO {
@@ -24,7 +24,7 @@ export interface ArticuloManufacturado extends BaseEntity {
   categoria: CategoriaInfo;
   detalles: ManufacturadoDetalleDTO[];
   imagenes: ImagenDTO[];
-  
+
   // Campos calculados
   costoTotal: number;
   margenGanancia: number;

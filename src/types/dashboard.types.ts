@@ -1,4 +1,4 @@
-import type { ArticuloInsumoResponseDTO } from "./ingredientes.types";
+import type { ArticuloInsumoResponseDTO } from "./ingrediente.types";
 import type { ArticuloManufacturadoResponseDTO } from "./producto.types";
 
 export interface DashboardMetrics {
@@ -12,15 +12,15 @@ export interface DashboardMetrics {
 }
 
 export interface StockAlert {
-  tipo: 'critico' | 'bajo' | 'agotado';
+  tipo: "critico" | "bajo" | "agotado";
   articulo: ArticuloInsumoResponseDTO;
   mensaje: string;
-  prioridad: 'alta' | 'media' | 'baja';
+  prioridad: "alta" | "media" | "baja";
 }
 
 export interface ProductAlert {
-  tipo: 'no_preparable' | 'costo_alto' | 'sin_ingredientes';
+  tipo: "no_preparable" | "costo_alto" | "sin_ingredientes";
   producto: ArticuloManufacturadoResponseDTO;
   mensaje: string;
-  prioridad: 'alta' | 'media' | 'baja';
+  prioridad: "alta" | "media" | "baja";
 }

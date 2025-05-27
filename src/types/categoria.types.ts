@@ -1,9 +1,4 @@
-// src/models/Categoria.ts
-
-// src/models/Categoria.ts
-
 import type { BaseEntity } from "./common.types";
-
 
 export interface Categoria extends BaseEntity {
   idCategoria: number;

@@ -1,4 +1,4 @@
-import type { ArticuloInsumoResponseDTO } from "./ingredientes.types";
+import type { ArticuloInsumoResponseDTO } from "./ingrediente.types";
 
 export interface ApiError {
   message: string;
@@ -25,7 +25,7 @@ export interface SearchParams {
   sort?: string;
 }
 
-// Respuestas de endpoints especÃ­ficos
+// Respuestas de endpoints especi­ficos
 export interface StockControlResponse {
   stockCritico: ArticuloInsumoResponseDTO[];
   stockBajo: ArticuloInsumoResponseDTO[];

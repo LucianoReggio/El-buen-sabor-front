@@ -8,7 +8,7 @@ export interface PaginationParams {
   page?: number;
   size?: number;
   sort?: string;
-  direction?: 'ASC' | 'DESC';
+  direction?: "ASC" | "DESC";
 }
 
 export interface PaginatedResponse<T> {
@@ -33,10 +33,17 @@ export interface FormState {
   isValid: boolean;
 }
 
-export type LoadingState = 'idle' | 'loading' | 'success' | 'error';
+export type LoadingState = "idle" | "loading" | "success" | "error";
 
 export interface SelectOption {
   value: string | number;
   label: string;
   disabled?: boolean;
+}
+
+export interface SearchParams {
+  denominacion?: string;
+  page?: number;
+  size?: number;
+  sort?: string;
 }
