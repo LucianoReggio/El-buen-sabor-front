@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from "react";
-import { useNotifications } from "../../../hooks/UseNotification";
+import { useNotifications } from "../../../hooks/useNotification";
 import type {
   RecetaIngrediente,
   ManufacturadoDetalleDTO,

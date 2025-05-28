@@ -40,7 +40,7 @@ export interface ArticuloManufacturadoRequestDTO {
   descripcion?: string;
   tiempoEstimadoEnMinutos: number;
   preparacion?: string;
-  precioVenta?: number;
+  precioVenta: number;
   margenGanancia?: number;
   detalles: ManufacturadoDetalleDTO[];
   imagen?: ImagenDTO;

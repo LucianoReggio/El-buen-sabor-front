@@ -3,9 +3,9 @@ import {
   ingredienteService,
   unidadMedidaService,
 } from "../services/ingredienteService";
-import { useApi } from "../../../hooks/UseApi";
-import { useNotifications } from "../../../hooks/UseNotification";
-import { useDebounce } from "../../../hooks/UseDebounce";
+import { useApi } from "../../../hooks/useApi";
+import { useNotifications } from "../../../hooks/useNotification";
+import { useDebounce } from "../../../hooks/useDebounce";
 import type {
   ArticuloInsumoResponseDTO,
   ArticuloInsumoRequestDTO,

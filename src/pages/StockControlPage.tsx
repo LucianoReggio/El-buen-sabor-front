@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
-import { AlertTriangle, Package, ShoppingCart, TrendingUp } from 'lucide-react';
-import { useStockControl } from '../features/ingredientes/hooks/UseStockControl';
-import { useIngredientes } from '../features/ingredientes/hooks/UseIngredientes';
-import { PageContainer } from '../components/layouts/PageContainer';
-import { Card } from '../components/layouts/Card';
-import { Button } from '../components/ui/Button';
-import { Badge } from '../components/ui/Badge';
-import { Modal } from '../components/ui/Modal';
-import { Table } from '../components/ui/Table';
-import { CompraIngredienteForm } from '../features/ingredientes/components/CompraIngredienteForm';
-import type { TableColumn } from '../components/ui/Table';
-import type { ArticuloInsumoResponseDTO } from '../types/ingrediente.types';
+import React, { useState } from "react";
+import { AlertTriangle, Package, ShoppingCart, TrendingUp } from "lucide-react";
+import { useStockControl } from "../features/ingredientes/hooks/useStockControl";
+import { useIngredientes } from "../features/ingredientes/hooks/useIngredientes";
+import { PageContainer } from "../components/layouts/PageContainer";
+import { Card } from "../components/layouts/Card";
+import { Button } from "../components/ui/Button";
+import { Badge } from "../components/ui/Badge";
+import { Modal } from "../components/ui/Modal";
+import { Table } from "../components/ui/Table";
+import { CompraIngredienteForm } from "../features/ingredientes/components/CompraIngredienteForm";
+import type { TableColumn } from "../components/ui/Table";
+import type { ArticuloInsumoResponseDTO } from "../types/ingrediente.types";
 
 export const StockControlPage: React.FC = () => {
   const [showCompraModal, setShowCompraModal] = useState(false);
-  const [selectedIngrediente, setSelectedIngrediente] = useState<ArticuloInsumoResponseDTO | null>(null);
+  const [selectedIngrediente, setSelectedIngrediente] =
+    useState<ArticuloInsumoResponseDTO | null>(null);
 
   const {
     stockCritico,
@@ -29,8 +30,8 @@ export const StockControlPage: React.FC = () => {
   const { updateStock } = useIngredientes();
 
   const breadcrumbs = [
-    { label: 'Inicio', href: '/dashboard' },
-    { label: 'Control de Stock', current: true },
+    { label: "Inicio", href: "/dashboard" },
+    { label: "Control de Stock", current: true },
   ];
 
   const handleRegistrarCompra = (ingrediente: ArticuloInsumoResponseDTO) => {
@@ -45,55 +46,61 @@ export const StockControlPage: React.FC = () => {
 
   const stockCriticoColumns: TableColumn<ArticuloInsumoResponseDTO>[] = [
     {
-      key: 'denominacion',
-      label: 'Ingrediente',
+      key: "denominacion",
+      label: "Ingrediente",
       sortable: true,
     },
     {
-      key: 'denominacionCategoria',
-      label: 'Categoría',
+      key: "denominacionCategoria",
+      label: "Categoría",
       sortable: true,
     },
     {
-      key: 'stockActual',
-      label: 'Stock Actual',
+      key: "stockActual",
+      label: "Stock Actual",
       sortable: true,
       render: (value, row) => (
         <div className="flex items-center gap-2">
           <span className="font-medium">{value}</span>
-          <span className="text-gray-500 text-sm">{row.denominacionUnidadMedida}</span>
+          <span className="text-gray-500 text-sm">
+            {row.denominacionUnidadMedida}
+          </span>
         </div>
       ),
     },
     {
-      key: 'stockMaximo',
-      label: 'Stock Máximo',
+      key: "stockMaximo",
+      label: "Stock Máximo",
       sortable: true,
       render: (value, row) => (
         <div className="flex items-center gap-2">
           <span>{value}</span>
-          <span className="text-gray-500 text-sm">{row.denominacionUnidadMedida}</span>
+          <span className="text-gray-500 text-sm">
+            {row.denominacionUnidadMedida}
+          </span>
         </div>
       ),
     },
     {
-      key: 'porcentajeStock',
-      label: 'Porcentaje',
+      key: "porcentajeStock",
+      label: "Porcentaje",
       sortable: true,
       render: (value) => (
-        <Badge variant={value < 20 ? 'danger' : value < 40 ? 'warning' : 'success'}>
+        <Badge
+          variant={value < 20 ? "danger" : value < 40 ? "warning" : "success"}
+        >
           {Math.round(value)}%
         </Badge>
       ),
     },
     {
-      key: 'precioCompra',
-      label: 'Precio Compra',
+      key: "precioCompra",
+      label: "Precio Compra",
       render: (value) => `$${value.toLocaleString()}`,
     },
     {
-      key: 'actions',
-      label: 'Acciones',
+      key: "actions",
+      label: "Acciones",
       render: (_, row) => (
         <div className="flex gap-2">
           <Button
@@ -132,14 +139,18 @@ export const StockControlPage: React.FC = () => {
           <div className="text-2xl font-bold text-red-600">{totalAlertas}</div>
           <div className="text-sm text-gray-600">Total Alertas</div>
         </Card>
-        
+
         <Card padding="sm" className="text-center">
-          <div className="text-2xl font-bold text-red-700">{alertasCriticas}</div>
+          <div className="text-2xl font-bold text-red-700">
+            {alertasCriticas}
+          </div>
           <div className="text-sm text-gray-600">Stock Crítico</div>
         </Card>
-        
+
         <Card padding="sm" className="text-center">
-          <div className="text-2xl font-bold text-yellow-600">{alertasBajas}</div>
+          <div className="text-2xl font-bold text-yellow-600">
+            {alertasBajas}
+          </div>
           <div className="text-sm text-gray-600">Stock Bajo</div>
         </Card>
       </div>

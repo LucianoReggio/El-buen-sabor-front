@@ -15,19 +15,43 @@ export function useNotifications() {
       message: string,
       options?: NotificationOptions
     ) => {
-      // Aquí integrarías con tu librería favorita (react-hot-toast, react-toastify, etc.)
-      console.log(`[${type.toUpperCase()}]`, message, options);
+      // Implementación simple con console.log por ahora
+      // En producción integrarías con react-hot-toast, react-toastify, etc.
+      const timestamp = new Date().toLocaleTimeString();
+      const prefix = `[${timestamp}] [${type.toUpperCase()}]`;
 
-      // Ejemplo con react-hot-toast (comentado)
-      // if (type === 'success') toast.success(message);
-      // if (type === 'error') toast.error(message);
-      // if (type === 'warning') toast(message, { icon: '⚠️' });
-      // if (type === 'info') toast(message, { icon: 'ℹ️' });
+      console.log(`${prefix} ${message}`, options);
+
+      // Si quieres usar browser notifications nativas:
+      // if (Notification.permission === 'granted') {
+      //   new Notification(options?.title || 'Notificación', {
+      //     body: message,
+      //     icon: '/favicon.ico'
+      //   });
+      // }
+
+      // Ejemplo de integración con react-hot-toast (comentado):
+      // import toast from 'react-hot-toast';
+      // switch (type) {
+      //   case 'success':
+      //     toast.success(message, { duration: options?.duration });
+      //     break;
+      //   case 'error':
+      //     toast.error(message, { duration: options?.duration });
+      //     break;
+      //   case 'warning':
+      //     toast(message, { icon: '⚠️', duration: options?.duration });
+      //     break;
+      //   case 'info':
+      //     toast(message, { icon: 'ℹ️', duration: options?.duration });
+      //     break;
+      // }
     },
     []
   );
 
   return {
+    // Métodos principales
     success: (message: string, options?: NotificationOptions) =>
       show("success", message, options),
     error: (message: string, options?: NotificationOptions) =>
@@ -36,5 +60,8 @@ export function useNotifications() {
       show("warning", message, options),
     info: (message: string, options?: NotificationOptions) =>
       show("info", message, options),
+
+    // Método genérico
+    show,
   };
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { productoService } from "../services/productoService";
 import { ingredienteService } from "../../ingredientes/services/ingredienteService";
-import { useApi } from "../../../hooks/UseApi";
-import { useNotifications } from "../../../hooks/UseNotification";
-import { useDebounce } from "../../../hooks/UseDebounce";
+import { useApi } from "../../../hooks/useApi";
+import { useNotifications } from "../../../hooks/useNotification";
+import { useDebounce } from "../../../hooks/useDebounce";
 import type {
   ArticuloManufacturadoResponseDTO,
   ArticuloManufacturadoRequestDTO,

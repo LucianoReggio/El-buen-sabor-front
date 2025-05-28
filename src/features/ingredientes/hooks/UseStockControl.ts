@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { ingredienteService } from "../services/ingredienteService";
-import { useNotifications } from "../../../hooks/UseNotification";
+import { useNotifications } from "../../../hooks/useNotification";
 import type { ArticuloInsumoResponseDTO } from "../../../types/ingrediente.types";
 
 export function useStockControl() {

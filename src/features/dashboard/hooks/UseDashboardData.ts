@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
-import { ingredienteService } from "../../ingredientes/services/IngredienteService";
-import { productoService } from "../../productos/services/ProductoService";
-import { categoriaService } from "../../categorias/services/CategoriaService";
-import { useNotifications } from "../../../hooks/UseNotification";
+import { ingredienteService } from "../../ingredientes/services/ingredienteService";
+import { productoService } from "../../productos/services/productoService";
+import { categoriaService } from "../../categorias/services/categoriaService";
+import { useNotifications } from "../../../hooks/useNotification";
 import type {
   DashboardMetrics,
   StockAlert,

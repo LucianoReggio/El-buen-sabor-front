@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { Plus, Filter, TreePine, List } from 'lucide-react';
-import { useCategorias } from '../features/categorias/hooks/UseCategoria';
-import { PageContainer } from '../components/layouts/PageContainer';
-import { Card } from '../components/layouts/Card';
-import { Button } from '../components/ui/Button';
-import { Input } from '../components/ui/Input';
-import { Modal } from '../components/ui/Modal';
-import { CategoriasList } from '../features/categorias/components/CategoriasList';
-import { CategoriaTreeView } from '../features/categorias/components/CategoriaTreeView';
-import { CategoriaForm } from '../features/categorias/components/CategoriaForm';
+import React, { useState } from "react";
+import { Plus, Filter, TreePine, List } from "lucide-react";
+import { useCategorias } from "../features/categorias/hooks/useCategoria";
+import { PageContainer } from "../components/layouts/PageContainer";
+import { Card } from "../components/layouts/Card";
+import { Button } from "../components/ui/Button";
+import { Input } from "../components/ui/Input";
+import { Modal } from "../components/ui/Modal";
+import { CategoriasList } from "../features/categorias/components/CategoriaList";
+import { CategoriaTreeView } from "../features/categorias/components/CategoriaTreeView";
+import { CategoriaForm } from "../features/categorias/components/CategoriaForm";
 
-type ViewMode = 'list' | 'tree';
+type ViewMode = "list" | "tree";
 
 export const CategoriasPage: React.FC = () => {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
-  const [viewMode, setViewMode] = useState<ViewMode>('tree');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [viewMode, setViewMode] = useState<ViewMode>("tree");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const {
     categorias,
@@ -29,8 +29,8 @@ export const CategoriasPage: React.FC = () => {
   } = useCategorias();
 
   const breadcrumbs = [
-    { label: 'Inicio', href: '/dashboard' },
-    { label: 'Categorías', current: true },
+    { label: "Inicio", href: "/dashboard" },
+    { label: "Categorías", current: true },
   ];
 
   const handleSearch = (term: string) => {
@@ -40,8 +40,8 @@ export const CategoriasPage: React.FC = () => {
     }
   };
 
-  const categoriasPrincipales = categorias.filter(cat => !cat.esSubcategoria);
-  const subcategorias = categorias.filter(cat => cat.esSubcategoria);
+  const categoriasPrincipales = categorias.filter((cat) => !cat.esSubcategoria);
+  const subcategorias = categorias.filter((cat) => cat.esSubcategoria);
 
   return (
     <PageContainer
@@ -52,25 +52,25 @@ export const CategoriasPage: React.FC = () => {
         <div className="flex items-center gap-3">
           <div className="flex border border-gray-300 rounded-md">
             <Button
-              variant={viewMode === 'tree' ? 'primary' : 'ghost'}
+              variant={viewMode === "tree" ? "primary" : "ghost"}
               size="sm"
-              onClick={() => setViewMode('tree')}
+              onClick={() => setViewMode("tree")}
               icon={<TreePine className="h-4 w-4" />}
               className="rounded-r-none border-r-0"
             >
               Árbol
             </Button>
             <Button
-              variant={viewMode === 'list' ? 'primary' : 'ghost'}
+              variant={viewMode === "list" ? "primary" : "ghost"}
               size="sm"
-              onClick={() => setViewMode('list')}
+              onClick={() => setViewMode("list")}
               icon={<List className="h-4 w-4" />}
               className="rounded-l-none"
             >
               Lista
             </Button>
           </div>
-          
+
           <Button
             variant="primary"
             onClick={() => setShowCreateModal(true)}
@@ -84,17 +84,23 @@ export const CategoriasPage: React.FC = () => {
       {/* Métricas */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <Card padding="sm" className="text-center">
-          <div className="text-2xl font-bold text-indigo-600">{categorias.length}</div>
+          <div className="text-2xl font-bold text-indigo-600">
+            {categorias.length}
+          </div>
           <div className="text-sm text-gray-600">Total Categorías</div>
         </Card>
-        
+
         <Card padding="sm" className="text-center">
-          <div className="text-2xl font-bold text-blue-600">{categoriasPrincipales.length}</div>
+          <div className="text-2xl font-bold text-blue-600">
+            {categoriasPrincipales.length}
+          </div>
           <div className="text-sm text-gray-600">Principales</div>
         </Card>
-        
+
         <Card padding="sm" className="text-center">
-          <div className="text-2xl font-bold text-purple-600">{subcategorias.length}</div>
+          <div className="text-2xl font-bold text-purple-600">
+            {subcategorias.length}
+          </div>
           <div className="text-sm text-gray-600">Subcategorías</div>
         </Card>
       </div>
@@ -110,7 +116,7 @@ export const CategoriasPage: React.FC = () => {
       </Card>
 
       {/* Vista de Categorías */}
-      {viewMode === 'tree' ? (
+      {viewMode === "tree" ? (
         <CategoriaTreeView
           categorias={categoriasTree}
           loading={loading}

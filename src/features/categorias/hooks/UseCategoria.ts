@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { categoriaService } from "../services/categoriaService";
-import { useApi } from "../../../hooks/UseApi";
-import { useNotifications } from "../../../hooks/UseNotification";
+import { useApi } from "../../../hooks/useApi";
+import { useNotifications } from "../../../hooks/useNotification";
 import type {
   CategoriaResponseDTO,
   CategoriaRequestDTO,

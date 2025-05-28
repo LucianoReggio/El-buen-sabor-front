@@ -4,17 +4,24 @@ export const validateEmail = (email: string): boolean => {
 };
 
 export const validateRequired = (value: any): boolean => {
-  if (typeof value === 'string') {
+  if (typeof value === "string") {
     return value.trim().length > 0;
   }
-  return value != null && value !== '';
+  return value != null && value !== "";
 };
 
-export const validateMinLength = (value: string, minLength: number): boolean => {
-  return value && value.length >= minLength;
+export const validateMinLength = (
+  value: string,
+  minLength: number
+): boolean => {
+  if (!value) return false;
+  return value.length >= minLength;
 };
 
-export const validateMaxLength = (value: string, maxLength: number): boolean => {
+export const validateMaxLength = (
+  value: string,
+  maxLength: number
+): boolean => {
   return !value || value.length <= maxLength;
 };
 
@@ -30,7 +37,11 @@ export const validateInteger = (value: any): boolean => {
   return Number.isInteger(Number(value));
 };
 
-export const validateRange = (value: number, min: number, max: number): boolean => {
+export const validateRange = (
+  value: number,
+  min: number,
+  max: number
+): boolean => {
   return value >= min && value <= max;
 };
 

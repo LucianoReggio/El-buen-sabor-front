@@ -1,14 +1,14 @@
-import React from 'react';
-import { RefreshCw } from 'lucide-react';
-import { useDashboardData } from '../hooks/UseDashboardData';
-import { PageContainer } from '../../../components/layouts/PageContainer';
-import { Card } from '../../../components/layouts/Card';
-import { Button } from '../../../components/ui/Button';
-import { StockMetrics } from './StockMetrics';
-import { ProductMetrics } from './ProductMetrics';
-import { AlertsPanel } from './AlertsPanel';
-import { QuickActions } from './QuickActions';
-import { RecentActivity } from './RecentActivity';
+import React from "react";
+import { RefreshCw } from "lucide-react";
+import { useDashboardData } from "../hooks/useDashboardData";
+import { PageContainer } from "../../../components/layouts/PageContainer";
+import { Card } from "../../../components/layouts/Card";
+import { Button } from "../../../components/ui/Button";
+import { StockMetrics } from "./StockMetrics";
+import { ProductMetrics } from "./ProductMetrics";
+import { AlertsPanel } from "./AlertsPanel";
+import { QuickActions } from "./QuickActions";
+import { RecentActivity } from "./RecentActivity";
 
 export const DashboardOverview: React.FC = () => {
   const {
@@ -23,23 +23,23 @@ export const DashboardOverview: React.FC = () => {
   } = useDashboardData();
 
   const breadcrumbs = [
-    { label: 'Inicio', href: '/' },
-    { label: 'Dashboard', current: true },
+    { label: "Inicio", href: "/" },
+    { label: "Dashboard", current: true },
   ];
 
   const formatLastUpdate = (date: Date | null) => {
-    if (!date) return 'Nunca';
-    
+    if (!date) return "Nunca";
+
     const now = new Date();
     const diffMs = now.getTime() - date.getTime();
     const diffMins = Math.floor(diffMs / (1000 * 60));
-    
-    if (diffMins < 1) return 'Ahora mismo';
+
+    if (diffMins < 1) return "Ahora mismo";
     if (diffMins < 60) return `Hace ${diffMins} min`;
-    
+
     const diffHours = Math.floor(diffMins / 60);
     if (diffHours < 24) return `Hace ${diffHours}h`;
-    
+
     return date.toLocaleDateString();
   };
 
@@ -70,8 +70,8 @@ export const DashboardOverview: React.FC = () => {
       {/* Alertas críticas */}
       {alertSummary.criticas > 0 && (
         <AlertsPanel
-          stockAlerts={stockAlerts.filter(a => a.prioridad === 'alta')}
-          productAlerts={productAlerts.filter(a => a.prioridad === 'alta')}
+          stockAlerts={stockAlerts.filter((a) => a.prioridad === "alta")}
+          productAlerts={productAlerts.filter((a) => a.prioridad === "alta")}
           className="mb-6"
         />
       )}
@@ -83,7 +83,7 @@ export const DashboardOverview: React.FC = () => {
           stockAlerts={stockAlerts}
           loading={loading}
         />
-        
+
         <ProductMetrics
           metrics={metrics}
           productAlerts={productAlerts}
@@ -96,7 +96,7 @@ export const DashboardOverview: React.FC = () => {
         <div className="xl:col-span-1">
           <QuickActions />
         </div>
-        
+
         <div className="xl:col-span-2">
           <RecentActivity />
         </div>

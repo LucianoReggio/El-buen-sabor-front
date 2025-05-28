@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Plus, Filter, Download, Calculator } from 'lucide-react';
-import { useProductos } from '../features/productos/hooks/UseProductos';
-import { useCategorias } from '../features/categorias/hooks/UseCategoria';
-import { PageContainer } from '../components/layouts/PageContainer';
-import { Card } from '../components/layouts/Card';
-import { Button } from '../components/ui/Button';
-import { Input } from '../components/ui/Input';
-import { Select } from '../components/ui/Select';
-import { Modal } from '../components/ui/Modal';
-import { ProductosList } from '../features/productos/components/ProductosList';
-import { ProductoForm } from '../features/productos/components/ProductoForm';
-import { CostoCalculator } from '../features/productos/components/CostoCalculator';
-import type { ProductoFilters } from '../types/producto.types';
+import React, { useState } from "react";
+import { Plus, Filter, Download, Calculator } from "lucide-react";
+import { useProductos } from "../features/productos/hooks/useProductos";
+import { useCategorias } from "../features/categorias/hooks/useCategoria";
+import { PageContainer } from "../components/layouts/PageContainer";
+import { Card } from "../components/layouts/Card";
+import { Button } from "../components/ui/Button";
+import { Input } from "../components/ui/Input";
+import { Select } from "../components/ui/Select";
+import { Modal } from "../components/ui/Modal";
+import { ProductosList } from "../features/productos/components/ProductosList";
+import { ProductoForm } from "../features/productos/components/ProductoForm";
+import { CostoCalculator } from "../features/productos/components/CostoCalculator";
+import type { ProductoFilters } from "../types/producto.types";
 
 export const ProductosPage: React.FC = () => {
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -35,26 +35,26 @@ export const ProductosPage: React.FC = () => {
   const { categorias } = useCategorias();
 
   const breadcrumbs = [
-    { label: 'Inicio', href: '/dashboard' },
-    { label: 'Productos', current: true },
+    { label: "Inicio", href: "/dashboard" },
+    { label: "Productos", current: true },
   ];
 
   const handleFilterChange = (key: keyof ProductoFilters, value: any) => {
-    setFilters(prev => ({ ...prev, [key]: value }));
+    setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
   const categoriaOptions = [
-    { value: '', label: 'Todas las categorías' },
-    ...categorias.map(cat => ({
+    { value: "", label: "Todas las categorías" },
+    ...categorias.map((cat) => ({
       value: cat.idCategoria.toString(),
       label: cat.denominacion,
     })),
   ];
 
   const preparabilidadOptions = [
-    { value: '', label: 'Todos los estados' },
-    { value: 'true', label: 'Solo preparables' },
-    { value: 'false', label: 'Solo no preparables' },
+    { value: "", label: "Todos los estados" },
+    { value: "true", label: "Solo preparables" },
+    { value: "false", label: "Solo no preparables" },
   ];
 
   return (
@@ -72,7 +72,7 @@ export const ProductosPage: React.FC = () => {
           >
             Calculadora
           </Button>
-          
+
           <Button
             variant="outline"
             size="sm"
@@ -81,7 +81,7 @@ export const ProductosPage: React.FC = () => {
           >
             Filtros
           </Button>
-          
+
           <Button
             variant="outline"
             size="sm"
@@ -89,7 +89,7 @@ export const ProductosPage: React.FC = () => {
           >
             Exportar
           </Button>
-          
+
           <Button
             variant="primary"
             onClick={() => setShowCreateModal(true)}
@@ -103,22 +103,30 @@ export const ProductosPage: React.FC = () => {
       {/* Métricas de Productos */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <Card padding="sm" className="text-center">
-          <div className="text-2xl font-bold text-purple-600">{productMetrics.total}</div>
+          <div className="text-2xl font-bold text-purple-600">
+            {productMetrics.total}
+          </div>
           <div className="text-sm text-gray-600">Total</div>
         </Card>
-        
+
         <Card padding="sm" className="text-center">
-          <div className="text-2xl font-bold text-green-600">{productMetrics.preparables}</div>
+          <div className="text-2xl font-bold text-green-600">
+            {productMetrics.preparables}
+          </div>
           <div className="text-sm text-gray-600">Preparables</div>
         </Card>
-        
+
         <Card padding="sm" className="text-center">
-          <div className="text-2xl font-bold text-red-600">{productMetrics.noPreparables}</div>
+          <div className="text-2xl font-bold text-red-600">
+            {productMetrics.noPreparables}
+          </div>
           <div className="text-sm text-gray-600">No Preparables</div>
         </Card>
-        
+
         <Card padding="sm" className="text-center">
-          <div className="text-2xl font-bold text-orange-600">{productMetrics.sinIngredientes}</div>
+          <div className="text-2xl font-bold text-orange-600">
+            {productMetrics.sinIngredientes}
+          </div>
           <div className="text-sm text-gray-600">Sin Receta</div>
         </Card>
       </div>
@@ -138,41 +146,68 @@ export const ProductosPage: React.FC = () => {
               <Select
                 label="Categoría"
                 options={categoriaOptions}
-                value={filters.idCategoria?.toString() || ''}
-                onChange={(e) => handleFilterChange('idCategoria', e.target.value ? parseInt(e.target.value) : undefined)}
+                value={filters.idCategoria?.toString() || ""}
+                onChange={(e) =>
+                  handleFilterChange(
+                    "idCategoria",
+                    e.target.value ? parseInt(e.target.value) : undefined
+                  )
+                }
                 fullWidth
               />
-              
+
               <Select
                 label="Preparabilidad"
                 options={preparabilidadOptions}
-                value={filters.preparables?.toString() || ''}
-                onChange={(e) => handleFilterChange('preparables', e.target.value ? e.target.value === 'true' : undefined)}
+                value={filters.preparables?.toString() || ""}
+                onChange={(e) =>
+                  handleFilterChange(
+                    "preparables",
+                    e.target.value ? e.target.value === "true" : undefined
+                  )
+                }
                 fullWidth
               />
-              
+
               <Input
                 label="Tiempo máximo (min)"
                 type="number"
-                value={filters.tiempoMaximo || ''}
-                onChange={(e) => handleFilterChange('tiempoMaximo', e.target.value ? parseInt(e.target.value) : undefined)}
+                value={filters.tiempoMaximo || ""}
+                onChange={(e) =>
+                  handleFilterChange(
+                    "tiempoMaximo",
+                    e.target.value ? parseInt(e.target.value) : undefined
+                  )
+                }
                 fullWidth
               />
-              
+
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-gray-700">Precio</label>
+                <label className="text-sm font-medium text-gray-700">
+                  Precio
+                </label>
                 <div className="flex gap-2">
                   <Input
                     placeholder="Mín"
                     type="number"
-                    value={filters.precioMin || ''}
-                    onChange={(e) => handleFilterChange('precioMin', e.target.value ? parseFloat(e.target.value) : undefined)}
+                    value={filters.precioMin || ""}
+                    onChange={(e) =>
+                      handleFilterChange(
+                        "precioMin",
+                        e.target.value ? parseFloat(e.target.value) : undefined
+                      )
+                    }
                   />
                   <Input
                     placeholder="Máx"
                     type="number"
-                    value={filters.precioMax || ''}
-                    onChange={(e) => handleFilterChange('precioMax', e.target.value ? parseFloat(e.target.value) : undefined)}
+                    value={filters.precioMax || ""}
+                    onChange={(e) =>
+                      handleFilterChange(
+                        "precioMax",
+                        e.target.value ? parseFloat(e.target.value) : undefined
+                      )
+                    }
                   />
                 </div>
               </div>
@@ -227,7 +262,15 @@ export const ProductosPage: React.FC = () => {
         title="Calculadora de Costos"
         size="lg"
       >
-        <CostoCalculator />
+        <CostoCalculator
+          costoTotal={0}
+          precioVenta={0}
+          margenGanancia={2.5}
+          calcularAutomatico={true}
+          onPrecioChange={(precio) => console.log("Precio:", precio)}
+          onMargenChange={(margen) => console.log("Margen:", margen)}
+          onCalcularToggle={(auto) => console.log("Auto:", auto)}
+        />
       </Modal>
     </PageContainer>
   );

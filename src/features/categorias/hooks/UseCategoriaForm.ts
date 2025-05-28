@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
+import { useNotifications } from "../../../hooks/useNotification";
 import { categoriaService } from "../services/categoriaService";
-import { useNotifications } from "../../../hooks/UseNotification";
 import type { CategoriaFormData } from "../../../types/categoria.types";
 
 interface UseCategoriaFormProps {
